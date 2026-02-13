@@ -5,16 +5,16 @@ echo "Deploying the Azure resources..."
 # Define resource group parameters
 RG_LOCATION="westus"
 MODEL_NAME="gpt-4o-mini"
-MODEL_VERSION="2024-07-18"
-AI_PROJECT_FRIENDLY_NAME="Contoso Agent Service Workshop"
-MODEL_CAPACITY=120
+MODEL_VERSION="2024-11-20"
+AI_PROJECT_FRIENDLY_NAME="Tavant AI Agent Service Workshop"
+MODEL_CAPACITY=140
 
 # Generate a unique suffix (4 character random string)
 UNIQUE_SUFFIX=$(printf "%04d" $((RANDOM % 10000)))
 DEPLOYMENT_NAME="azure-ai-agent-service-lab-${UNIQUE_SUFFIX}"
 
 # Print the resource group name that will be created
-RESOURCE_GROUP_NAME="rg-contoso-agent-workshop-${UNIQUE_SUFFIX}"
+RESOURCE_GROUP_NAME="rg-tavant-agent-workshop-${UNIQUE_SUFFIX}"
 echo "Resource group that will be created: $RESOURCE_GROUP_NAME"
 
 # Deploy the Azure resources and save output to JSON
@@ -24,7 +24,7 @@ az deployment sub create \
   --template-file main.bicep \
   --parameters \
       uniqueSuffix="$UNIQUE_SUFFIX" \
-      resourcePrefix="contoso-agent-workshop" \
+      resourcePrefix="tavant-agent-workshop" \
       location="$RG_LOCATION" \
       aiProjectFriendlyName="$AI_PROJECT_FRIENDLY_NAME" \
       modelName="$MODEL_NAME" \

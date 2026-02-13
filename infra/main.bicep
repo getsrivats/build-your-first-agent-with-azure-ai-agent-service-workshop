@@ -2,10 +2,10 @@ targetScope = 'subscription'
 
 // Parameters
 @description('Prefix for the resource group and resources')
-param resourcePrefix string = 'contoso-agent-workshop'
+param resourcePrefix string = 'tavant-agent-workshop'
 
 @description('Location of the resource group to create or use for the deployment')
-param location string = 'eastus'
+param location string = 'westus'
 
 @description('Friendly name for your Azure AI resource')
 param aiProjectFriendlyName string = 'Agents standard project resource'
@@ -51,8 +51,8 @@ resource rg 'Microsoft.Resources/resourceGroups@2024-11-01' = {
 }
 
 // Calculate the unique suffix
-var aiProjectName = toLower('prj-contoso-agent-${uniqueSuffix}')
-var foundryResourceName = toLower('fdy-contoso-agent-${uniqueSuffix}')
+var aiProjectName = toLower('prj-tavant-agent-${uniqueSuffix}')
+var foundryResourceName = toLower('fdy-tavant-agent-${uniqueSuffix}')
 
 module foundry 'foundry.bicep' = {
   name: 'foundry-account-deployment'
